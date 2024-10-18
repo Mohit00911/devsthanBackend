@@ -6,6 +6,13 @@
     "routes": [
       { "src": "/(.*)", "dest": "/" }
     ],
+     "functions": {
+      "api/*": {
+        "maxDuration": 10,
+        "memory": 1024, 
+        "maxLambdaSize": "100mb" 
+      }
+    }
    
   }
   
