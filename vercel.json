@@ -1,18 +1,13 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "./index.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "/" }
-    ],
-     "functions": {
-      "api/*": {
-        "maxDuration": 10,
-        "memory": 1024, 
-        "maxLambdaSize": "100mb" 
-      }
+  "version": 2,
+  "functions": {
+    "api/**/*": {
+      "maxDuration": 10, // Maximum execution time for your functions
+      "memory": 1024, // Allocate 1 GB of memory for your functions
+      "maxLambdaSize": "100mb" // Total size limit for all files in the request
     }
-   
-  }
-  
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/api/index.js" } // Adjust based on your function structure
+  ]
+}
